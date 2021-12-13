@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 31
     buildToolsVersion "31.0.0"
@@ -32,4 +34,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    //网络请求日志打印
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
