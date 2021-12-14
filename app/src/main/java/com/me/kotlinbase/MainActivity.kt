@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.me.kotlinbase.fragment.MainFragment
 import com.me.kotlinbase.http.CommonOkHttp
 import com.me.kotlinbase.retrofit.ApiService
 import com.me.kotlinbase.retrofit.CommonRetrofit
@@ -55,6 +56,14 @@ class MainActivity : AppCompatActivity() {
                 Log.e(TAG, response.body()?.toString() ?: "response is null")
             }
         })
+
+        val mainFragment = MainFragment()
+        val bundle = Bundle()
+        bundle.putInt("int_extra", 100)
+        bundle.putString("string_extra", "string")
+        mainFragment.arguments = bundle
+        supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, mainFragment)
+            .commitAllowingStateLoss()
     }
 }
 
